@@ -50,29 +50,38 @@ What's the time complexity?
 
  */
 
-function Stack(capacity) {
-  // implement me...
+// Implementing with object
+function Stack(capacity = Infinity) {
+  this.capacity = capacity;
+  this.storage = {};
+  this.count = 0;
 }
 
 Stack.prototype.push = function(value) {
-  // implement me...
+  if (this.count < this.capacity) {
+    this.storage[this.count++] = value;
+  } else {
+    throw new Error('Out of storage space!')
+  }
 };
-// Time complexity:
+// Time complexity: O(1)
 
 Stack.prototype.pop = function() {
-  // implement me...
+  let result = this.storage[this.count - 1];
+  delete this.storage[--this.count];
+  return result;
 };
-// Time complexity:
+// Time complexity: O(1)
 
 Stack.prototype.peek = function() {
-  // implement me...
+  return this.storage[this.count - 1];
 };
-// Time complexity:
+// Time complexity: O(1)
 
 Stack.prototype.count = function() {
-  // implement me...
+  return this.count;
 };
-// Time complexity:
+// Time complexity: O(1)
 
 
 /*

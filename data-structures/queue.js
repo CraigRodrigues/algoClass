@@ -50,26 +50,47 @@ What's the time complexity?
 
  */
 
+// myQueue.enqueue(value)
+// => count of queue
+// add value to collection
+
 function Queue(capacity) {
-  // implement me...
+  this.capacity = capacity || Infinity;
+  this.count = 0;
+  this.first = 0;
+  this.itemNum = 0;
+  this.storage = {};
 }
 
 Queue.prototype.enqueue = function(value) {
-  // implement me...
+  if (this.count < this.capacity) {
+    this.storage[this.itemNum] = value;
+  }
+  this.count++;
+  this.itemNum++;
+  return this.count;
 };
 // Time complexity:
 
 Queue.prototype.dequeue = function() {
-  // implement me...
+  // Find the 0 key and hold that value in a var we can return.
+  let result = this.storage[this.first];
+  // Delete that key/value paid
+  delete this.storage[this.first];
+  // Change first's key
+  this.count--;
+  this.first++;
+
+  return result;
 };
 // Time complexity:
 
 Queue.prototype.peek = function() {
-  // implement me...
+  return this.storage[this.first];
 };
 
 Queue.prototype.count = function() {
-  // implement me...
+  return this.count;
 };
 // Time complexity:
 
