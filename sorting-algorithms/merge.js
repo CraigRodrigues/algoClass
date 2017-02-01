@@ -67,3 +67,23 @@ function recursiveMergeSort(list) {
   return merge(leftMerged, rightMerged);
 }
 
+// - Implement iterative merge sort
+
+// Step 1 - Map every element in the array into it's own array element
+// Create a results array to hold out merge
+// Step 2 - Create a while loop that will continue to merge adjacent element arrays
+// Step 3 - If our newly merged array has a length > 1 merge it again
+// Step 4 - Return results
+
+function iterativeMerge(list) {
+  let splitList = list.map(item => [item]);
+
+  while (splitList.length > 1) {
+    let results = [];
+    for (let i = 0; i < splitList.length; i += 2) {
+      splitList[i + 1] !== undefined ? results.push(merge(splitList[i], splitList[i + 1])) : results.push(splitList[i]);
+    }
+  splitList = results;
+  }
+  return splitList[0];
+}
