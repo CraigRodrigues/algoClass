@@ -39,7 +39,7 @@ function selectionSort(arr) {
         minIndex = i;
       }
     }
-    // once we have found our smallest value then swap taht value with the front of the unsorted list
+    // once we have found our smallest value then swap that value with the front of the unsorted list
     let temp = arr[pivot];
     arr[pivot] = arr[minIndex];
     arr[minIndex] = temp;
@@ -50,6 +50,8 @@ function selectionSort(arr) {
 
   return arr;
 }
+
+console.log(selectionSort([5, 4, 3, 2, 1]));
 
 /*
 
