@@ -24,6 +24,21 @@ Variants:
 
 const quickSort = function (collection, left = 0, right = collection.length - 1) {
 
+  let index;
+
+  if (collection.length > 1) {
+    index = partition(collection, left, right);
+
+    if (left < index - 1) {
+      quickSort(collection, left, index - 1);
+    }
+    if (index < right) {
+      quickSort(collection, index, right);
+    }
+  }
+
+  return collection;
+
 };
 
 const swap = function (collection, firstIndex, secondIndex) {
@@ -56,8 +71,9 @@ const partition = function (collection, left, right) {
       j--;
     }
   }
-  console.log(collection);
+
   return i;
 };
 
-console.log(partition([4, 2, 6, 5, 3, 9], 0, 5));
+let arr = [4, 2, 6, 5, 3, 9, -1, 3, 10, 0];
+console.log(quickSort(arr));
